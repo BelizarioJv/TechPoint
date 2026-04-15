@@ -1,14 +1,29 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 //layout principal da aplicaçao onde utliza o componente heeader com os links . Outlet e para rederizar as paginas que foram passadas na rota
 export function RootLayout() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timer = setTimeout(() => setIsVisible(true), 600);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
     <>
       <div className="flex flex-col bg-slate-500 min-h-screen">
         <Header />
 
-        <main className="flex-1">
+        <main
+          className={`flex-1 transition-opacity duration-400 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}>
           <Outlet></Outlet>
         </main>
       </div>

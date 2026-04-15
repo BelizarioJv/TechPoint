@@ -10,10 +10,10 @@ export function Header() {
         <img src={logo} alt="logo TechPoint" className="w-64 h-auto m-4" />
       </div>
 
-      <nav className="flex items-center gap-5 text-2xl text-gray-700">
+      <nav className="flex items-center gap-5 text-2xl text-gray-700 font-serif m-6">
         <Link
           className="border-b-2 border-transparent hover:border-b-blue-400"
-          to="/admin">
+          to="/">
           Home
         </Link>
         <Link
