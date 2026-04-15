@@ -5,17 +5,23 @@ import { Header } from "../components/Header";
 export function RootLayout() {
   return (
     <>
-      <div className="app">
-        <Header></Header>
-        <main>
-          <h1>Loja de Produtos eletronicos</h1>
-          <hr />
+      <div className="flex flex-col bg-slate-500 min-h-screen">
+        <Header />
+
+        <main className="flex-1">
           <Outlet></Outlet>
-          <footer>
-            <p>Feito com react router DOM </p>
-          </footer>
         </main>
       </div>
+      <footer className="flex items-center justify-end p-4 bg-slate-500 text-sm text-amber-50">
+        <p>
+          Desenvolvideo por{" "}
+          <span>
+            <a href="https://www.linkedin.com/in/joaobelizariodev/">
+              João Belizario
+            </a>
+          </span>{" "}
+        </p>
+      </footer>
     </>
   );
 }

@@ -15,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, // indicando que e a rota inicial da aplicaçao
+        path: "/admin",
         element: <AdminHome />, // pagina inicial e a home
       },
       {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "About",
+        element: <About />,
       },
     ],
   },
