@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "./pages/RootLayout";
-import { AdminHome } from "./pages/AdminHome";
+import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { Cart } from "./pages/Carts";
 import { Product } from "./pages/Product";
 import { About } from "./pages/About";
-import { loadProduct } from "./loaders/products";
+import { loadProduct } from "./loaders/product";
 import { ProductBoundary } from "./error-boundaries/ProductBoundary";
 
 const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AdminHome />, // indicando que e a rota inicial da aplicaçao        element: <AdminHome />, // pagina inicial e a home
+        element: <Home />, // indicando que e a rota inicial da aplicaçao        element: <AdminHome />, // pagina inicial e a home
       },
       {
         path: "products",

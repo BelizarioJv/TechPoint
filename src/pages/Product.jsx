@@ -1,5 +1,7 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { ArrowBigLeft, ShoppingCart, Plus } from "lucide-react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 // Usando o componente Link para criar o botao de voltar para a pagina de produtos
 
@@ -7,6 +9,7 @@ import { ArrowBigLeft, ShoppingCart, Plus } from "lucide-react";
 //usando o metodo "find" para percorre products e retorna o elemento que satisfaz a funçao de callback(vendo o id do produto e conferindo no databse(+ é para converter o id em number))
 export function Product() {
   const product = useLoaderData(); // userLoaderData(hook do react) e a mesma coisa que chamar a funçao criada para chamar os produtos
+  const { addToCart } = useContext(CartContext);
 
   return (
     <section className="min-h-screen bg-linear-to-br from-slate-100 to-slate-200 p-8">
@@ -52,7 +55,7 @@ export function Product() {
                   {product.name}
                 </h2>
 
-                <p className="text-slate-600 text-lg leading-relaxed mb-6 p-4 bg-slate-50 rounded-lg border-l-4 border-blue-500">
+                <p className="text-slate-600 text-lg leading-relaxed mb-6 p-4 bg-slate-50 rounded-lg border-l-8 border-blue-500">
                   {product.description}
                 </p>
 
@@ -78,7 +81,7 @@ export function Product() {
               </div>
 
               {/* Informações Adicionais */}
-              <div className="bg-linear-to-br from-amber-50 to-orange-50 p-4 rounded-lg mb-8 border-l-4 border-orange-400">
+              <div className="bg-linear-to-br from-amber-50 to-orange-50 p-4 rounded-lg mb-8 border-l-8 border-orange-400">
                 <p className="text-sm text-slate-700">
                   <strong>✓ Garantia:</strong> 12 meses
                 </p>
@@ -90,11 +93,18 @@ export function Product() {
 
               {/* Botões de Ação */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-linear-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-lg">
-                  <ShoppingCart />
-                  Comprar Agora
-                </button>
-                <button className="flex-1 bg-linear-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-lg">
+                <Link to={`/cart`}>
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="flex-1 bg-linear-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-lg">
+                    <ShoppingCart />
+                    Comprar Agora
+                  </button>
+                </Link>
+
+                <button
+                  onClick={() => addToCart(product)}
+                  className="flex-1 bg-linear-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-lg">
                   <Plus />
                   Carrinho
                 </button>

@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import products from "../database.json";
+import { ShoppingCart, Plus } from "lucide-react";
 
 //pagina de produtos , pegamdo os produtos do database e usando a funçao MAP para criar o layout para cada produto
 
 export function Products() {
+  const { addToCart } = useContext(CartContext);
+
   // Agrupando produtos por categoria
   const groupedByCategory = products.reduce((acc, product) => {
     if (!acc[product.category]) {
@@ -30,7 +34,7 @@ export function Products() {
 
       <div className="flex gap-8">
         {/* ASIDE - FILTRO DE CATEGORIAS */}
-        <aside className="w-64 bg-white p-6 rounded-lg shadow-lg h-fit sticky top-8">
+        <aside className="w-64 bg-white p-6 rounded-lg shadow-lg h-fit sticky top-10">
           <h3 className="text-2xl font-bold mb-6 text-slate-800">Categorias</h3>
           <ul className="flex flex-col gap-2">
             {/* Botão "Todos" */}
@@ -90,18 +94,33 @@ export function Products() {
                         {product.category}
                       </p>
                     </div>
+
                     <p className="text-lg font-bold text-green-600 text-center">
                       R$ {product.price.toFixed(2)}
                     </p>
-                    <div className="flex gap-2">
-                      <Link to={`/products/${product.id}`} className="flex-1">
-                        <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded text-sm font-semibold">
+
+                    <div className="flex flex-row justify-center items-center gap-4 ">
+                      <Link to={`/products/${product.id}`}>
+                        <button className=" bg-blue-500 hover:bg-blue-600 text-white p-4 rounded text-sm font-semibold transition-transform duration-300 hover:scale-105 ">
                           Ver
                         </button>
                       </Link>
-                      <button className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded text-sm font-semibold">
-                        Comprar
+
+                      <button
+                        onClick={() => addToCart(product)}
+                        className="flex gap-1 bg-green-500 hover:bg-green-600 text-white p-4 rounded text-sm font-semibold  transition-transform duration-300 hover:scale-105  ">
+                        <Plus size={20} />
+                        Adicionar ao Carrinho
                       </button>
+
+                      <Link to={`/cart`}>
+                        <button
+                          onClick={() => addToCart(product)}
+                          className="flex gap-1 bg-green-500 hover:bg-green-600 text-white p-4 rounded text-sm font-semibold transition-transform duration-300 hover:scale-105  ">
+                          <ShoppingCart size={20} />
+                          Comprar
+                        </button>
+                      </Link>
                     </div>
                   </li>
                 </div>

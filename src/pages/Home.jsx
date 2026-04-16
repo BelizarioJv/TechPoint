@@ -6,19 +6,17 @@ import headphone from "../assets/imgs/headphone.webp";
 import console from "../assets/imgs/console.webp";
 import smartwatch from "../assets/imgs/smartwatch.webp";
 
-export function AdminHome() {
+export function Home() {
   return (
     <>
       {/* Texto inicial */}
-      <section
-        className="flex flex-col items-center justify-center gap-4 mr-50 ml-50 mt-5 mb-20
-       bg-slate-300 text-center p-4 rounded-lg shadow-lg shadow-black/50 ">
+      <section className="bg-banner w-full-dvh h-200 bg-cover bg-center flex flex-col items-center text-center p-10 ">
         <h1 className="text-3xl ">
           Bem-vindo á{" "}
           <span className="text-blue-600 font-bold">TechPoint Eletrônicos</span>
           , sua loja de tecnologia de confiança!
         </h1>
-        <p className="text-white ">
+        <p className="text-white text-2xl mt-4">
           Os melhores produtos eletronicôs para você
         </p>
       </section>
