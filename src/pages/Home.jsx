@@ -26,7 +26,7 @@ export function Home() {
         <h2 className="text-blue-400 font-bold text-3xl">
           Produtos em Destaque
         </h2>
-        <div className="grid grid-cols-3 grid-rows-2 gap-10 mt-7 justify-center items-center">
+        <div className=" flex flex-col lg:grid lg:grid-cols-3 lg:grid-rows-2 gap-10 mt-7 justify-center items-center">
           <Link to="/products">
             <div className="bg-white p-4 rounded-lg shadow-lg w-64 hover:shadow-blue-400/50 transition-shadow duration-500">
               <h3 className="text-xl font-bold">Smartphones</h3>

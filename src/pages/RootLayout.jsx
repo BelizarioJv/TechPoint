@@ -27,7 +27,7 @@ export function RootLayout() {
           <Outlet></Outlet>
         </main>
       </div>
-      <footer className="flex items-center justify-end p-4 bg-slate-500 text-sm text-amber-50">
+      <footer className="flex items-center justify-center lg:justify-end p-4 bg-slate-500 text-sm text-amber-50">
         <p>
           Desenvolvideo por{" "}
           <span>

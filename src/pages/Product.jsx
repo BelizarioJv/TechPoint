@@ -60,7 +60,7 @@ export function Product() {
                 </p>
 
                 {/* Estatísticas */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className=" flex flex-col lg:grid lg:grid-cols-2  gap-4 mb-6">
                   <div className="bg-linear-to-br from-green-50 to-green-100 p-4 rounded-lg">
                     <p className="text-green-600 text-sm font-semibold">
                       Preço

@@ -18,12 +18,12 @@ export function Header() {
   }, [itensInCart]);
 
   return (
-    <header className="flex flex-row justify-evenly items-center bg-white m-4 rounded-lg shadow-lg shadow-black/50">
+    <header className="flex flex-col justify-center items-center bg-white m-4 rounded-lg shadow-lg shadow-black/50 lg:flex-row sm:justify-evenly">
       <div>
         <img src={logo} alt="logo TechPoint" className="w-64 h-auto m-4" />
       </div>
 
-      <nav className="flex items-center gap-5 text-2xl text-gray-700 font-serif m-6">
+      <nav className="flex flex-col items-center gap-5 text-2xl text-gray-700 font-serif m-6 lg:flex-row">
         <Link
           className="flex flex-row border-b-2 border-transparent hover:border-b-blue-400 gap-4"
           to="/">
