@@ -115,7 +115,7 @@ export function Products() {
 
                       <button
                         onClick={() => addToCart(product)}
-                        className="flex justify-center items-center gap-1 w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded text-xs md:text-sm transition">
+                        className="flex justify-center items-center gap-1 w-full bg-green-500 hover:bg-green-600  active:bg-green-900 text-white px-3 py-2 rounded text-xs md:text-sm transition">
                         <Plus size={16} />
                         Adicionar ao Carrinho
                       </button>
@@ -123,7 +123,7 @@ export function Products() {
                       <Link to="/cart">
                         <button
                           onClick={() => addToCart(product)}
-                          className="flex justify-center items-center gap-1 w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded text-xs md:text-sm transition">
+                          className="flex justify-center items-center gap-1 w-full bg-green-500 hover:bg-green-600 active:bg-green-900 text-white px-3 py-2 rounded text-xs md:text-sm transition">
                           <ShoppingCart size={16} />
                         </button>
                       </Link>

@@ -14,7 +14,12 @@ export function CartProvider({ children }) {
   }
 
   function removeFromCart(productId) {
-    setCart(cart.filter((item) => item.id !== productId));
+    const newCart = [...cart]; // copia o carrinho atual
+    const index = newCart.findIndex((item) => item.id === productId); // pega o índice do primeiro item com esse id
+    if (index !== -1) {
+      newCart.splice(index, 1); // remove apenas esse item
+      setCart(newCart);
+    }
   }
 
   function clearCart() {
